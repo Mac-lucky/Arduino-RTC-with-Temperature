@@ -4,26 +4,25 @@
 
 Adafruit_BME280 bme; // use I2C interface
 
-
-
+int r;
+int numbers[6];
 int button1;
 int button2;
 
 // Pins definition for Time Set Buttons
-int but1=2;// pin 0 for Hours Setting
-int but2=3;// pin 1 for Minutes 
+int but1=0;// pin 0 for Hours Setting
+int but2=1;// pin 1 for Minutes 
 
 DS3231  rtc(SDA, SCL);
-LiquidCrystal lcd(0, 1, 4, 5, 6, 7);
-
+LiquidCrystal lcd(2, 3, 4, 5, 6, 7);
 const int Time_light=999;
 int bl_TO=Time_light;// Backlight Time-Out
 int bl=10; // Backlight pin
 const int backlight=120; // no more then 7mA !!!
 
 
-void setup() { 
-    attachInterrupt(digitalPinToInterrupt(but1), lottery, LOW); // Przerwanie reagujące na zbocze rosnące
+void setup() {   
+
     bme.begin();
     rtc.begin();
     //rtc.setTime(12, 0, 0);     // Set the time to 12:00:00 (24hr format)
@@ -39,6 +38,9 @@ void loop() {
 
 for (int a=0; a<8; a++) 
 {
+    if(digitalRead(1) == LOW){
+        lottery();
+    }
     lcd.setCursor(0,0);
     lcd.print(rtc.getDOWStr(FORMAT_SHORT));
     lcd.print(" ");
@@ -63,5 +65,27 @@ for (int b=0; b<8; b++)
     delay(1000);
 }
 lcd.clear();
+}
 
+
+void lottery(){
+lcd.clear();
+lcd.setCursor(4, 0);
+    for (int i=0; i<6; i++){
+        numbers[i] = r;
+        r = random(1, 49);
+        if (r<10){
+            lcd.print("0");
+            lcd.print(r);
+        }
+        else{    
+            lcd.print(r);
+        }
+        lcd.print(" ");
+        if (i == 2){
+            lcd.setCursor(4,1);
+        }
+        
+    }    
+delay(5000);
 }
