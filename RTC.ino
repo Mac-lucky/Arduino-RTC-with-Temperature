@@ -70,26 +70,27 @@ lcd.clear();
 
 void lottery(){
 lcd.clear();
-for (int i=0; i<10; i++){
+for (int i=0; i<30; i++){
+lcd.setCursor(3, 0);
     for (int i=0; i<6; i++){
+        if (i == 3){
+            lcd.setCursor(3, 1);
+        }
         numbers[i] = r;
         r = random(1, 49);
         if (r<10){
             lcd.print("0");
             lcd.print(r);
+            lcd.print("  ");
         }
         else{    
             lcd.print(r);
+            lcd.print("  ");
         }
-        lcd.print(" ");
-        if (i == 2){
-            lcd.setCursor(4, 1);
-        }
-        else{
-            lcd.setCursor(4, 0);
-        }
+        
+        
     }
-delay(200);    
+delay(50);    
 }    
 delay(5000);
 }
