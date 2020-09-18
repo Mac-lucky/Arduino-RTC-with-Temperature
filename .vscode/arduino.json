@@ -1,6 +1,7 @@
 {
-    "board": "arduino:avr:uno",
+    "board": "arduino:avr:nano",
     "programmer": "AVRISP mkII",
-    "port": "COM6",
-    "sketch": "RTC.ino"
+    "port": "COM7",
+    "sketch": "RTC.ino",
+    "configuration": "cpu=atmega328old"
 }

@@ -1,6 +1,11 @@
+#include <LiquidCrystal_I2C.h>
+
+#include <LiquidCrystal_I2C.h>
+
+#include <LiquidCrystal_I2C.h>
 #include <Adafruit_BME280.h>
 #include <DS3231.h>
-#include <LiquidCrystal.h>
+
 #define PIR 11
 
 Adafruit_BME280 bme; // use I2C interface
@@ -11,16 +16,17 @@ int button1;
 int button2;
 
 // Pins definition for Time Set Buttons
-int but1=0;// pin 0 for Hours Setting
-int but2=1;// pin 1 for Minutes 
+int but1=8;// pin 0 for Hours Setting
+int but2=9;// pin 1 for Minutes 
 
-DS3231  rtc(SDA, SCL);
-LiquidCrystal lcd(2, 3, 4, 5, 6, 7);
-int bl=10; // Backlight pin
-const int backlight=120; // no more then 7mA !!!
+DS3231  rtc(A4, A5);
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 
-void setup() {   
+void setup() { 
+    lcd.init();  
+    lcd.backlight();
     pinMode(PIR, INPUT);
     bme.begin();
     rtc.begin();
@@ -28,10 +34,8 @@ void setup() {
     //rtc.setDate(1, 1, 2014);   // Set the date to January 1st, 2014
     //rtc.setDOW(SATURDAY);     // Set Day-of-Week to SUNDAY
 
-    lcd.begin(16,2);
     pinMode(but1,INPUT_PULLUP);// avoid external Pullup resistors for Button 1
     pinMode(but2,INPUT_PULLUP);// and Button 2
-    analogWrite(bl,0);// Turn on Backlight
 }
 void loop() { 
 for (int a=0; a<8; a++) 
@@ -96,24 +100,23 @@ delay(7000);
 
 void turnonpir(){
     if (digitalRead(PIR) == HIGH){
-        analogWrite(bl,backlight);
+        lcd.backlight();
     }
     else{
-        analogWrite(bl,0);
+        lcd.noBacklight();
     }
 }
 
 void but2press(){
-    if(digitalRead(1) == LOW){
-        analogWrite(bl,backlight);
+    if(digitalRead(8) == LOW){
+        lcd.backlight();
         lottery();
     }
 }
 
 void but1press(){
-    if(digitalRead(0) == LOW){
-        analogWrite(bl,backlight);
+    if(digitalRead(9) == LOW){
+
         lottery();
     }
 }
-
