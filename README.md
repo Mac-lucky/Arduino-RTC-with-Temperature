@@ -32,7 +32,7 @@ One of the is programmed to turn on lottery function, that shows 6 numbers for t
 
 I made box for the electronics in Fusion 360. Files are in 3D print files folder. Downthre you can see how it looks like already printed.
 
-![alt text](https://github.com/gryzmol98/Arduino-RTC-with-Temperature/blob/master/images/boxmodel.gif?raw=true)
+![alt text](https://github.com/gryzmol98/Arduino-RTC-with-Temperature/blob/master/images/boxmodel.gif)
 ![alt text](https://github.com/gryzmol98/Arduino-RTC-with-Temperature/blob/master/images/box.jpg?raw=true)
 
 I want to program the other button, but for now I don't have any idea.
