@@ -8,6 +8,7 @@ LCD backlight is activated, when motion sensor sends signal. I used HC-SR501 for
 The LCD is using I2C connector to minimize the use of cables.
 
 Everything is using I2C to send and receive data. Every SDA is connected to PIN A4 (yellow cable) and SCL (orange cable) to PIN A5.
+![alt text](https://github.com/gryzmol98/Arduino-RTC-with-Temperature/blob/master/images/analogpins.jpg?raw=true)
 
 I used digital PIN D11 as a receiver of the signal from motion sensor. 
 
