@@ -19,7 +19,7 @@ PINs D8 and D7 are used to recognise and receive the signal if button is pressed
 
 I soldered all cables (5V, GND, SDA, SCL) separately and used heat shrinkable tubing to make it more elegant.
 
-![alt text](https://github.com/gryzmol98/Arduino-RTC-with-Temperature/blob/master/images/cablecombined.jpg?raw=true)
+![alt text](https://github.com/gryzmol98/Arduino-RTC-with-Temperature/blob/master/images/cablescombined.jpg?raw=true)
 
 In the end everything looks like this and is programmed to update the seconds every 1000ms for 8s and then show weather, humidity and pressure (updated every 1000ms) for 8s.
 
