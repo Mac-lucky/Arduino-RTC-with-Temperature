@@ -13,5 +13,5 @@ I used digital PIN D11 as a receiver of the signal from motion sensor.
 
 PINs D8 and D7 are used to recognise and receive the signal if button is pressed. I used 2 pins, because I have 2 buttons.
 
-![alt text](https://github.com/gryzmol98/Arduino-RTC-with-Temperature/blob/master/images/digitalpins.jpg)
+![alt text](https://github.com/gryzmol98/Arduino-RTC-with-Temperature/blob/master/images/digitalpins.jpg?raw=true)
 
