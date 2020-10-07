@@ -34,7 +34,7 @@ void setup() {
     //rtc.setDate(1, 1, 2014);   // Set the date to January 1st, 2014
     //rtc.setDOW(SATURDAY);     // Set Day-of-Week to SUNDAY
 
-    pinMode(but1,INPUT_PULLUP);// avoid external Pullup resistors for Button 1
+    pinMode(but1,INPUT_PULLUP);// Button 1
     pinMode(but2,INPUT_PULLUP);// and Button 2
 }
 void loop() { 
@@ -116,7 +116,7 @@ void but2press(){
 
 void but1press(){
     if(digitalRead(9) == LOW){
-
+        lcd.backlight();
         lottery();
     }
 }
