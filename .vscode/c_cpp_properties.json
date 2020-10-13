@@ -8,7 +8,9 @@
                 "C:\\Program Files (x86)\\Arduino\\tools\\**",
                 "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\**",
                 "C:\\Users\\jb816\\Documents\\Arduino\\libraries\\**",
-                "C:\\Program Files (x86)\\Arduino\\libraries\\**"
+                "C:\\Program Files (x86)\\Arduino\\libraries\\**",
+                "C:\\Users\\jb816\\Dysk Google\\DEVELOPMENT\\Arduino\\**",
+                "C:\\Users\\jb816\\Dysk Google\\DEVELOPMENT\\Arduino\\libraries\\**"
             ],
             "forcedInclude": [
                 "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino\\Arduino.h"

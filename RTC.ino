@@ -1,8 +1,4 @@
 #include <LiquidCrystal_I2C.h>
-
-#include <LiquidCrystal_I2C.h>
-
-#include <LiquidCrystal_I2C.h>
 #include <Adafruit_BME280.h>
 #include <DS3231.h>
 
@@ -30,9 +26,9 @@ void setup() {
     pinMode(PIR, INPUT);
     bme.begin();
     rtc.begin();
-    //rtc.setTime(12, 0, 0);     // Set the time to 12:00:00 (24hr format)
-    //rtc.setDate(1, 1, 2014);   // Set the date to January 1st, 2014
-    //rtc.setDOW(SATURDAY);     // Set Day-of-Week to SUNDAY
+    //rtc.setTime(16, 15, 30);     // Set the time to 12:00:00 (24hr format)
+    //rtc.setDate(10, 11, 2020);   // Set the date to January 1st, 2014
+    //rtc.setDOW(SUNDAY);     // Set Day-of-Week to SUNDAY
 
     pinMode(but1,INPUT_PULLUP);// Button 1
     pinMode(but2,INPUT_PULLUP);// and Button 2
