@@ -34,42 +34,48 @@ void setup() {
     pinMode(but2,INPUT_PULLUP);// and Button 2
 }
 void loop() { 
-for (int a=0; a<8; a++) 
+for (int a=0; a<8; a++)         //display for 8s and updat evry 1s
 {
     but2press();
     turnonpir();
     lcd.setCursor(0,0);
-    lcd.print(rtc.getDOWStr(FORMAT_SHORT));
+    lcd.print(rtc.getDOWStr(FORMAT_SHORT));     //read day fo the week
     lcd.print(" ");
-    lcd.print(rtc.getTimeStr());
+    lcd.print(rtc.getTimeStr());                //read time
     lcd.setCursor(0,1);
     lcd.print("Data: ");
-    lcd.print(rtc.getDateStr());
-    delay(1000);
+    lcd.print(rtc.getDateStr());                //read date
+    delay(500);             //better reaction
+    but2press();            //check if button is pressed
+    turnonpir();            //check if signal from motion is high
+    delay(500);
 }
 lcd.clear();
 
 for (int b=0; b<8; b++)
 {
-    but2press();
-    turnonpir();
+    but2press();            //check if button is pressed
+    turnonpir();            //check if signal from motion is high
     lcd.setCursor(0,0);
-    lcd.print(bme.readTemperature());
+    lcd.print(bme.readTemperature());       //read temperature
     lcd.print("*C   ");
-    lcd.print(bme.readHumidity());
+    lcd.print(bme.readHumidity());          //read humidity
     lcd.print("%");
     lcd.setCursor(3,1);
-    lcd.print(bme.readPressure()/100.0);
+    lcd.print(bme.readPressure()/100.0);    //read pressure
     lcd.print("hPa ");
-    delay(1000);
+    delay(500);             //better reaction
+    but2press();            //check if button is pressed
+    turnonpir();            //check if signal from motion is high
+    delay(500);
 }
 lcd.clear();
 }
 
 
-void lottery(){
+void lottery(){             
 lcd.clear();
-for (int i=0; i<30; i++){
+for (int i=0; i<30; i++){       //print numbers over to make the lottery effect 
 lcd.setCursor(3, 0);
     for (int i=0; i<6; i++){
         if (i == 3){
@@ -77,7 +83,7 @@ lcd.setCursor(3, 0);
         }
         numbers[i] = r;
         r = random(1, 49);
-        if (r<10){
+        if (r<10){              //make numbers below 10 to have 0 before the actual number generated
             lcd.print("0");
             lcd.print(r);
             lcd.print("  ");
@@ -94,7 +100,7 @@ delay(50);
 delay(7000);
 }
 
-void turnonpir(){
+void turnonpir(){       //turn on screen if motion sensor signal is high
     if (digitalRead(PIR) == HIGH){
         lcd.backlight();
     }
@@ -103,14 +109,14 @@ void turnonpir(){
     }
 }
 
-void but2press(){
+void but2press(){       //check if button is pressed
     if(digitalRead(8) == LOW){
         lcd.backlight();
         lottery();
     }
 }
 
-void but1press(){
+void but1press(){       //chck if button is pressed
     if(digitalRead(9) == LOW){
         lcd.backlight();
         lottery();
