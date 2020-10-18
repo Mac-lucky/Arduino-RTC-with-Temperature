@@ -1,4 +1,6 @@
 # Arduino RTC BME280 LM35 PIR activated
+
+![alt text](https://github.com/gryzmol98/Arduino-RTC-with-Temperature/blob/master/images/final.jpg?raw=true)
  
 I made RTC clock with weather station
 
