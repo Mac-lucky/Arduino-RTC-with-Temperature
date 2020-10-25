@@ -8,8 +8,6 @@ Adafruit_BME280 bme; // use I2C interface
 
 int r;
 int numbers[6];
-int button1;
-int button2;
 
 // Pins definition for Time Set Buttons
 int but1=8;// pin 0 for Hours Setting
@@ -24,6 +22,7 @@ void setup() {
     lcd.init();  
     lcd.backlight();
     pinMode(PIR, INPUT);
+    randomSeed(analogRead(A0));
     bme.begin();
     rtc.begin();
     //rtc.setTime(16, 15, 30);     // Set the time to 12:00:00 (24hr format)
@@ -82,7 +81,7 @@ lcd.setCursor(3, 0);
             lcd.setCursor(3, 1);
         }
         numbers[i] = r;
-        r = random(1, 49);
+        r = random(1, 50);
         if (r<10){              //make numbers below 10 to have 0 before the actual number generated
             lcd.print("0");
             lcd.print(r);
